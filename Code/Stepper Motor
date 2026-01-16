@@ -1,0 +1,32 @@
+// Stepper Motor Control
+
+#include <Stepper.h>
+
+#define STEPS 200
+// Step count is found by dividing 360 degrees by 1.8 degrees,
+// which is the rotation per step of the motor.
+
+// Initialize the stepper motor object by defining
+// the total steps per revolution and the connected pins
+Stepper stepper(STEPS, 8, 9, 10, 11);  
+// Pin assignments may change after further testing and adjustments
+
+// Stores the last analog input value read
+int previous = 0;
+
+void setup() {
+  // Configure the motor to rotate at 30 revolutions per minute
+  stepper.setSpeed(30);
+}
+
+void loop() {
+  // Read the current value from the analog sensor
+  int val = analogRead(0);
+
+  // Rotate the motor by the difference between
+  // the current and previous sensor readings
+  stepper.step(val - previous);
+
+  // Update the stored sensor value for the next cycle
+  previous = val;
+}
