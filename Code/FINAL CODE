@@ -1,0 +1,169 @@
+// =============================
+// Claw Machine Control
+// DE Capstone Project
+// =============================
+
+#include <Stepper.h>
+#include <Servo.h>
+#include <LiquidCrystal.h>
+
+// =============================
+// I/O Pin Assignments
+// =============================
+const int X_STEP_PIN = 2;
+const int Y_STEP_PIN = 3;
+const int Z_UP_PIN = 4;     // Button to raise the Z-axis
+const int Z_DOWN_PIN = 5;   // Button to lower the Z-axis
+const int START_BTN_PIN = 6;
+const int COIN_BTN_PIN = 7;
+const int LIMIT_X_PIN = 8;
+const int LIMIT_Y_PIN = 9;
+const int LIMIT_Z_PIN = 10;
+
+const int CLAW_SERVO_PIN = 11;
+
+// =============================
+// Motion/Scaling Values
+// =============================
+const int X_STEPS_PER_UNIT = 100;
+const int Y_STEPS_PER_UNIT = 100;
+const int Z_STEPS_PER_UNIT = 50;
+
+// =============================
+// Hardware Objects
+// =============================
+Stepper stepperX(X_STEPS_PER_UNIT, 2, 3, 4, 5);   // Temporary pin setup (update after wiring is finalized)
+Stepper stepperY(Y_STEPS_PER_UNIT, 6, 7, 8, 9);
+
+Servo clawServo;
+LiquidCrystal lcd(12, 13, A0, A1, A2, A3);        // LCD wired as: RS, EN, D4, D5, D6, D7
+
+// =============================
+// Game Mode Tracking
+// =============================
+enum GameState { IDLE, PLAYING, GAME_OVER };
+GameState gameState = IDLE;
+
+// =============================
+// Setup
+// =============================
+void setup() {
+  // Configure buttons and limit switches as pull-up inputs
+  pinMode(Z_UP_PIN, INPUT_PULLUP);
+  pinMode(Z_DOWN_PIN, INPUT_PULLUP);
+  pinMode(START_BTN_PIN, INPUT_PULLUP);
+  pinMode(COIN_BTN_PIN, INPUT_PULLUP);
+  pinMode(LIMIT_X_PIN, INPUT_PULLUP);
+  pinMode(LIMIT_Y_PIN, INPUT_PULLUP);
+  pinMode(LIMIT_Z_PIN, INPUT_PULLUP);
+
+  // Initialize the claw servo and set the starting position
+  clawServo.attach(CLAW_SERVO_PIN);
+  clawServo.write(0);       // Begin with the claw in the “closed” position
+
+  // Start the LCD and show the idle prompt
+  lcd.begin(16, 2);
+  lcd.print("INSERT COIN");
+}
+
+// =============================
+// Main Program Loop
+// =============================
+void loop() {
+  readButtons();
+
+  // Only allow movement/updates during gameplay
+  if (gameState == PLAYING) {
+    readJoystick();
+    moveGantry();
+    checkLimits();
+    updateLCD();
+  }
+}
+
+// =============================
+// Joystick Input
+// =============================
+int joystickX = 0;
+int joystickY = 0;
+
+void readJoystick() {
+  joystickX = analogRead(A4);   // Example analog inputs (change based on your wiring)
+  joystickY = analogRead(A5);
+}
+
+// =============================
+// Button Handling
+// =============================
+void readButtons() {
+  // Start the game when the start button is pressed
+  if (digitalRead(START_BTN_PIN) == LOW) {
+    gameState = PLAYING;
+    lcd.clear();
+    lcd.print("GAME START!");
+  }
+
+  // Return to the waiting screen when the coin button is pressed
+  if (digitalRead(COIN_BTN_PIN) == LOW) {
+    gameState = IDLE;
+    lcd.clear();
+    lcd.print("INSERT COIN");
+  }
+
+  // Manual Z-axis movement using the up/down controls
+  if (digitalRead(Z_UP_PIN) == LOW) {
+    moveZ(1);      // Positive direction = up
+  } else if (digitalRead(Z_DOWN_PIN) == LOW) {
+    moveZ(-1);     // Negative direction = down
+  }
+}
+
+// =============================
+// XY Gantry Movement
+// =============================
+void moveGantry() {
+  // Basic deadband-style control: step based on joystick thresholds
+  if (joystickX > 600) stepperX.step(1);
+  if (joystickX < 400) stepperX.step(-1);
+  if (joystickY > 600) stepperY.step(1);
+  if (joystickY < 400) stepperY.step(-1);
+}
+
+// =============================
+// Z-axis Movement (Placeholder)
+// =============================
+void moveZ(int direction) {
+  // Future: replace this with real Z-axis motor control (stepper/DC motor)
+}
+
+// =============================
+// Claw Actuation
+// =============================
+void openClaw() {
+  clawServo.write(90);
+}
+
+void closeClaw() {
+  clawServo.write(0);
+}
+
+// =============================
+// Limit Switch Safety Checks
+// =============================
+void checkLimits() {
+  if (digitalRead(LIMIT_X_PIN) == LOW) {
+    // Add logic here to prevent further X travel in that direction
+  }
+  if (digitalRead(LIMIT_Y_PIN) == LOW) {
+    // Add logic here to prevent further Y travel in that direction
+  }
+  if (digitalRead(LIMIT_Z_PIN) == LOW) {
+    // Add logic here to stop Z travel if the limit is triggered
+  }
+}
+
+// =============================
+// LCD Updates
+// =============================
+void updateLCD() {
+  // Optional: display coordinates, time remaining, credits, etc.
