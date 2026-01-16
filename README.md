@@ -40,27 +40,10 @@ This claw machine is built around an Arduino Mega Board and controls multiple mo
 | Resistors              | 18       | For transistor bases                           |
 | Breadboard & Jumper Wires | N/A   | For testbed and prototyping                   |
 | Power Supply           | N/A      | 5V logic for Arduino, separate motor supply  |
+| Motor Driver           | 5      | 4 for Stepper motors and 1 for Servo motor, controls the speed, direction, and torque  |
+| Potentiometer          | 1      | Controls the voltage supply to the motor  |
 
 *Most of the important stuff is here, smaller parts such as screws aren't documented.*
-
-
-| Component              | Quantity | Notes / Source                                 |
-|------------------------|----------|-----------------------------------------------|
-| Arduino Mega 2560      | 1        | Needed for sufficient I/O pins               |
-| 16x2 LCD Screen        | 1        | Displays messages to user                     |
-| NEMA 17 Stepper Motors | 4        | 2 for Y-axis, 1 X-axis, 1 Z-axis             |
-| Servo Motor            | 1        | Controls claw grip                            |
-| Joystick               | 1        | Controls X/Y gantry                           |
-| Buttons                | 3       | Start, coin, Z-axis control                   |
-| Limit Switches         | 3       | For X/Y/Z travel limits                       |
-| TIP-120 Transistors    | 18       | Control motor power safely                    |
-| Resistors              | 18       | For transistor bases                           |
-| Breadboard & Jumper Wires | N/A   | For testbed and prototyping                   |
-| Power Supply           | N/A      | 5V logic for Arduino, separate motor supply  |
-| Motor Driver           | 5      | 4 for Stepper motors and 1 for Servo motor, controls the speed, direction, and torque  |
-| Potentiometer           | 1      | Controls the voltage supply to the motor  |
-
-*Additional smaller electrical components and screws were used for the assembly but not documented* 
 
 ## Motor & Component Testing
 All motors and components were tested individually before integration:
@@ -78,7 +61,7 @@ All motors and components were tested individually before integration:
 
 ## Assembly Plan
 1. Create the CAD design of the claw machine on Fusion360
-2. Build testbed for individual components (Arduino Uno (for initial testing), motors, joystick, switches, etc)
+2. Build testbed for individual components (Arduino Uno, motors, joystick, switches, etc)
 3. Assemble X/YZ gantry system and mount motors
 4. Assemble Claw using pulley design for Z-Axis
 5. Wire motors through TIP-120 transistors to Arduino Mega 
