@@ -110,7 +110,7 @@ Full code is still in progress as shown in the `Code` folder The completed proje
 
 ## Demo
 
-**Full Video Demo:** [Watch here]([LINK))
+**Full Video Demo:** [Watch here] (LINK)
 
 *Still in progress*
 
