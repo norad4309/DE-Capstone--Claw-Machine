@@ -104,7 +104,51 @@ Note: We're currently still finalizing the gantry plan. We're leaning towards a 
 | Cable-Driven | 2 | 2 | 2 | 2 | 8 |
 | SCARA Arm | 1 | 3 | 1 | 1 | 6 |
 
+
 ## CAD Design
 We designed the internal and external layout of the claw machine in CAD to ensure all components would fit properly and the machine would be structurally sound.
 
-Below is the CAD model of the control box:
+Below is the CAD model of the structure:
+<img width="490" height="539" alt="Screenshot 2026-01-16 at 5 00 43 AM" src="https://github.com/user-attachments/assets/395d9ddc-7bd5-46a3-a5b1-cc5b86861f99" />
+
+## Wiring Diagram
+<img width="623" height="458" alt="Screenshot 2026-01-16 at 5 01 50 AM" src="https://github.com/user-attachments/assets/1e4e4bc6-fae4-4c8c-b421-a4832fbac842" />
+All motors are powered through TIP-120 transistors which allows the Arduino Mega to safely manage high-current components. A common ground keeps logic levels stable. Signal wiring was arranged to reduce noise and interference.
+
+## Code Outline
+<img width="416" height="538" alt="Screenshot 2026-01-16 at 5 02 37 AM" src="https://github.com/user-attachments/assets/9c728dd0-d83a-4275-b355-413c9a835524" />
+
+
+## Code
+Full code is still in progress as shown in the `code` folder The completed project code will be updated in the same file when done. 
+
+## Reflections and Connections 
+**Reflections
+This project has been one of my favorites because it introduced me to controlling components like servos and stepper motors, which I’ve never worked with before. It also helped me develop stronger troubleshooting skills and taught me how to use outside resources effectively. The Arduino websites were especially useful as references because they showed wiring and coding examples that were adaptable while still creating our own unique designs. As someone who doesn’t come from a robotics background and has never taken a coding class, this project has been a bit difficult for me to adjust to but I think I’m doing well. Working through this process showed me how important it is to plan out carefully, test parts individually, and be smarter with our time. I also learned how hardware limitations are to deal with, such as the Arduino Mega’s current capacity and the expense of parts. Overall, this project has just improved my problem-solving abilities and I think it’ll really help me in the future. I look forward to continuing to work on this project after the semester ends.
+**Connections**
+This project really connects to my future because it allows me to further see what real engineering work and processes look like, especially because that’s what I want to study in college. I know I got a little experience of this process in PLTW HPOE but this was different, more involved. Both my younger siblings are invested in STEM and I loved being a role model to inspire them as they watched me build the project. I hope it motivates them to try and create their own projects.
+
+## Team Members
+This project was completed as a collaboration between:
+
+- Nora Dunn @norad4309 (me)
+- Lena Li @lenali26 
+- Claire Zhu @clairezzhu
+
+All team members contributed to research, design, testing, and coding of the Arduino Claw Machine.
+
+## References
+Arduino Mega: https://store.arduino.cc/products/arduino-mega-2560-rev3
+
+LCD: https://www.youtube.com/watch?v=s_-nIgo71_w&t=121s
+
+Servo: https://www.youtube.com/watch?v=8-w_8izUO38
+
+Stepper: https://www.youtube.com/watch?v=7spK_BkMJys&t=360s
+
+Button: https://www.youtube.com/watch?v=VPGRqML_v0w
+
+Joystick: https://www.youtube.com/watch?v=vo7SbVhW3pE&t=336s
+
+Limit Switches: https://www.youtube.com/watch?v=6wuInF9Yw08
+
