@@ -1,0 +1,33 @@
+#include <Servo.h>
+// Servo motor control program used to define how the servo responds to input
+
+Servo myservo;        // Initialize a servo object
+
+int potpin = 0;       // Analog input pin connected to the potentiometer
+                      // The potentiometer provides a variable input signal
+int val;              // Stores the incoming analog value
+
+void setup() {
+  myservo.attach(9);  // Connects the servo motor to digital pin 9
+}
+
+void loop() {
+  // Read the current value from the potentiometer (range: 0–1023)
+  val = analogRead(potpin);
+
+  // Convert the potentiometer value into an angle the servo can use (0–180 degrees)
+  val = map(val, 0, 1023, 0, 180);
+
+  // Rotate the servo to the calculated angle
+  myservo.write(val);
+
+  // Brief delay to allow the servo to reach the desired position smoothly
+  delay(15);
+}
+
+
+
+
+
+
+
