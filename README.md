@@ -92,10 +92,14 @@ Note: We're currently still finalizing the gantry plan. We're leaning towards a 
 We designed the internal and external layout of the claw machine in CAD to ensure all components would fit properly and the machine would be structurally sound.
 
 Below is the CAD model of the structure:
+
+
 <img width="490" height="539" alt="Screenshot 2026-01-16 at 5 00 43 AM" src="https://github.com/user-attachments/assets/395d9ddc-7bd5-46a3-a5b1-cc5b86861f99" />
 
 ## Wiring Diagram
+
 <img width="623" height="458" alt="Screenshot 2026-01-16 at 5 01 50 AM" src="https://github.com/user-attachments/assets/1e4e4bc6-fae4-4c8c-b421-a4832fbac842" />
+
 All motors are powered through TIP-120 transistors which allows the Arduino Mega to safely manage high-current components. A common ground keeps logic levels stable. Signal wiring was arranged to reduce noise and interference.
 
 ## Code Outline
