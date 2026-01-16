@@ -107,7 +107,7 @@ All motors are powered through TIP-120 transistors which allows the Arduino Mega
 
 
 ## Code
-Full code is still in progress as shown in the `code` folder The completed project code will be updated in the same file when done. 
+Full code is still in progress as shown in the `Code` folder The completed project code will be updated in the same file when done. 
 
 ## Reflections and Connections 
 **Reflections
