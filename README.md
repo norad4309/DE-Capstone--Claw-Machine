@@ -105,13 +105,35 @@ All motors are powered through TIP-120 transistors which allows the Arduino Mega
 ## Code Outline
 <img width="416" height="538" alt="Screenshot 2026-01-16 at 5 02 37 AM" src="https://github.com/user-attachments/assets/9c728dd0-d83a-4275-b355-413c9a835524" />
 
-
 ## Code
 Full code is still in progress as shown in the `Code` folder The completed project code will be updated in the same file when done. 
 
+## Demo
+
+**Full Video Demo:** [Watch here]([LINK))
+
+*Still in progress*
+
+## Technical Artifacts
+This table shows  the key artifacts from our projects. By testing each component individually we could recognize mechanical or electrical issues early, and reinforce systematic troubleshooting in engineering. Observing how motors responded to signals helped refine our Arduino control code, ensuring smooth integration later.
+
+| Artifact                       | Design Step            | Skill                                                     | Importance                                                       |
+| ------------------------------ | ---------------------- | --------------------------------------------------------- | ------------------------------------------------------------------- 
+| Arduino Code                   | Software Integration   | C++ programming used for motor & servo control            | Shows knowledge of systems and problem-solving                   |
+| CAD Model                      | Mechanical Design      | 3D modeling, gantry design, interior and exterior         | Displays mechanical design process                               |
+| Wiring Diagram                 | Electrical Integration | Circuit designing, TIP-120 transistors,                   | Understanding electrical safety and handling high-currents       |
+| Motor & Servo Calibration Logs | Testing & Iteration    | Stepper and servo calibrating, joystick mapping           | Demonstrates precision,  improvement, and debugging skills       | 
+| Test Prints / Prototypes       | Prototyping            | 3D printing, component fitting and testing                | Shows hands-on engineering                                       |
+| Safety Documentation           | Technical Challenges   | Taking mechanical safety preventions                      | Practices an engineering mindset and risk reduction              |
+
+
 ## Reflections and Connections 
+**Summary:
+This project has shown how I can effectively work in a group to accomplish the engineering design process and create a functional project. In this project, I had to learn new skills like coding a bit and documenting to apply myself in new ways. This helped me gain adaptability to new concepts and processes. Overall, the projects demonstrates my understanding of the design process and how I can apply that directly into the project.
+
 **Reflections
 This project has been one of my favorites because it introduced me to controlling components like servos and stepper motors, which I’ve never worked with before. It also helped me develop stronger troubleshooting skills and taught me how to use outside resources effectively. The Arduino websites were especially useful as references because they showed wiring and coding examples that were adaptable while still creating our own unique designs. As someone who doesn’t come from a robotics background and has never taken a coding class, this project has been a bit difficult for me to adjust to but I think I’m doing well. Working through this process showed me how important it is to plan out carefully, test parts individually, and be smarter with our time. I also learned how hardware limitations are to deal with, such as the Arduino Mega’s current capacity and the expense of parts. Overall, this project has just improved my problem-solving abilities and I think it’ll really help me in the future. I look forward to continuing to work on this project after the semester ends.
+
 **Connections**
 This project really connects to my future because it allows me to further see what real engineering work and processes look like, especially because that’s what I want to study in college. I know I got a little experience of this process in PLTW HPOE but this was different, more involved. Both my younger siblings are invested in STEM and I loved being a role model to inspire them as they watched me build the project. I hope it motivates them to try and create their own projects.
 
